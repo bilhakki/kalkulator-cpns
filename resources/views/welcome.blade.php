@@ -111,7 +111,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('/script.js') }}"></script>
+    <script src="{{ asset('/script.js') }}?1"></script>
 </body>
 
 </html>

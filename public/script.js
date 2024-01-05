@@ -104,13 +104,13 @@ async function saveValue({
     totalScore
 }) {
     if (fingerprint) {
-        let device = localStorage.getItem("device")
-        if(!device){
-            device = await getDeviceData()
-            localStorage.setItem("device", JSON.stringify(device))
-        }else{
-            device = JSON.parse(device)
-        }
+        // let device = localStorage.getItem("device")
+        // if(!device){
+        //     device = await getDeviceData()
+        //     localStorage.setItem("device", JSON.stringify(device))
+        // }else{
+        //     device = JSON.parse(device)
+        // }
 
         await fetch(`/device`, {
             method: "POST",
@@ -119,13 +119,13 @@ async function saveValue({
             },
             body: JSON.stringify({
                 fingerprint,
-                ip: device.query,
-                country: device.country,
-                regionName: device.regionName,
-                city: device.city,
-                timezone: device.timezone,
-                as: device.as,
-                isp: device.isp,
+                // ip: device.query,
+                // country: device.country,
+                // regionName: device.regionName,
+                // city: device.city,
+                // timezone: device.timezone,
+                // as: device.as,
+                // isp: device.isp,
             }),
         });
         const res = await fetch(`/save`, {
