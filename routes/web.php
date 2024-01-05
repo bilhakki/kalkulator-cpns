@@ -24,22 +24,32 @@ Route::get('/', function () {
 Route::post('device', function (Request $request) {
     $device = Device::where("fingerprint", $request->fingerprint)->first();
     if (!$device) {
-        // $response = Http::get("https://api.ipify.org/?format=json");
-        // $body = $response->object();
-        // $ip = $body->ip;
-        // $response = Http::get("http://ip-api.com/json/{$ip}");
-        // $data = $response->object();
+        $response = Http::get("https://api.ipify.org/?format=json");
+        $body = $response->object();
+        $ip = $body->ip;
+        $response = Http::get("http://ip-api.com/json/{$ip}");
+        $data = $response->object();
+
         $device = new Device();
+        $device->fingerprint = $request->fingerprint;
+        $device->ip = $ip;
+        $device->country = $data->country;
+        $device->regionName = $data->regionName;
+        $device->city = $data->city;
+        $device->timezone = $data->timezone;
+        $device->as = $data->as;
+        $device->isp = $data->isp;
+
+        // $device->fingerprint = $request->fingerprint;
+        // $device->ip = $request->ip;
+        // $device->country = $request->country;
+        // $device->regionName = $request->regionName;
+        // $device->city = $request->city;
+        // $device->timezone = $request->timezone;
+        // $device->as = $request->as;
+        // $device->isp = $request->isp;
+        $device->save();
     }
-    $device->fingerprint = $request->fingerprint;
-    $device->ip = $request->ip;
-    $device->country = $request->country;
-    $device->regionName = $request->regionName;
-    $device->city = $request->city;
-    $device->timezone = $request->timezone;
-    $device->as = $request->as;
-    $device->isp = $request->isp;
-    $device->save();
     return response()->json($device);
 });
 
