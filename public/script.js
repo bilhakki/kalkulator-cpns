@@ -85,6 +85,7 @@ if (!fingerprint) {
         });
 }
 
+
 async function saveValue({
     skdCatScore,
     skbCatScore,

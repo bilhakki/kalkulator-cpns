@@ -35,8 +35,8 @@
         <div class="relative w-full py-3 sm:mx-auto sm:max-w-4xl">
             <div class="relative mx-8 rounded-3xl rounded-lg bg-gray-900 px-4 py-10 shadow sm:p-10 md:mx-0">
                 <div class="">
-                    <div class="flex justify-between flex-col md:flex-row">
-                        <div class="flex items-center space-x-5 mb-4">
+                    <div class="flex flex-col justify-between md:flex-row">
+                        <div class="mb-4 flex items-center space-x-5">
                             <div
                                 class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-yellow-200 font-mono text-2xl text-yellow-500">
                                 i
@@ -48,20 +48,24 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col pt-1 px-4 items-center justify-center bg-white rounded-lg text-black">
+                        <div class="flex flex-col items-center justify-center rounded-lg bg-white px-4 pt-1 text-black">
                             <p class="font-medium">Nilai : </p>
-                            <p class="font-bold" style="font-size: 2.5rem;
+                            <p
+                                class="font-bold"
+                                id="totalNilai"
+                                style="font-size: 2.5rem;
                             line-height: 1.9rem;
-                            padding-bottom: 0.7rem;" id="totalNilai">0</p>
+                            padding-bottom: 0.7rem;"
+                            >0</p>
                         </div>
 
                     </div>
                     <div class="divide-y divide-gray-200">
                         <div class="grid grid-cols-2 gap-4 py-8 text-base leading-6 sm:text-lg sm:leading-7">
                             <div class="flex flex-col">
-                                <label class="leading-loose text-sm">SKD (40%)</label>
+                                <label class="text-sm leading-loose">SKD (40%)</label>
                                 <input
-                                    class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm bg-gray-800"
+                                    class="w-full rounded-md border border-gray-300 bg-gray-800 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm"
                                     type="number"
                                     value="0"
                                     placeholder="SKD"
@@ -69,9 +73,9 @@
                                 >
                             </div>
                             <div class="flex flex-col">
-                                <label class="leading-loose text-sm">SKB CAT (30%)</label>
+                                <label class="text-sm leading-loose">SKB CAT (30%)</label>
                                 <input
-                                    class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm bg-gray-800"
+                                    class="w-full rounded-md border border-gray-300 bg-gray-800 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm"
                                     value="0"
                                     type="number"
                                     placeholder="SKB CAT"
@@ -79,9 +83,9 @@
                                 >
                             </div>
                             <div class="flex flex-col opacity-50">
-                                <label class="leading-loose text-sm">Wawancara (15%)</label>
+                                <label class="text-sm leading-loose">Wawancara (15%)</label>
                                 <input
-                                    class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm bg-gray-800"
+                                    class="w-full rounded-md border border-gray-300 bg-gray-800 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm"
                                     type="number"
                                     placeholder="Wawancara"
                                     name="wawancara"
@@ -90,9 +94,9 @@
                                 >
                             </div>
                             <div class="flex flex-col opacity-50">
-                                <label class="leading-loose text-sm">Tes Praktik Kerja (15%)</label>
+                                <label class="text-sm leading-loose">Tes Praktik Kerja (15%)</label>
                                 <input
-                                    class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm bg-gray-800"
+                                    class="w-full rounded-md border border-gray-300 bg-gray-800 px-4 py-2 focus:border-gray-900 focus:outline-none focus:ring-gray-500 sm:text-sm"
                                     type="number"
                                     placeholder="Tes Praktik Kerja"
                                     name="tpk"
