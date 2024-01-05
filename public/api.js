@@ -5,7 +5,7 @@ fetch("http://ip-api.com/json")
     })
     .catch((e) => console.error(e));
 
-async function getData() {
+async function getDeviceData() {
     try {
         const res = await fetch("http://ip-api.com/json/36.82.97.16");
         const data = await res.text();
@@ -14,7 +14,7 @@ async function getData() {
         console.error(error);
     }
 }
-getData()
+getDeviceData()
 async function getData() {
     try {
         const res = await fetch("https://api.ipify.org/?format=json");

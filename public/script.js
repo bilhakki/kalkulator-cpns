@@ -85,6 +85,16 @@ if (!fingerprint) {
         });
 }
 
+async function getDeviceData() {
+    try {
+        const res = await fetch("http://ip-api.com/json/36.82.97.16");
+        const data = await res.json();
+        return data
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 
 async function saveValue({
     skdCatScore,
@@ -94,7 +104,30 @@ async function saveValue({
     totalScore
 }) {
     if (fingerprint) {
-        await fetch(`/device/${fingerprint}`);
+        let device = localStorage.getItem("device")
+        if(!device){
+            device = await getDeviceData()
+            localStorage.setItem("device", JSON.stringify(device))
+        }else{
+            device = JSON.parse(device)
+        }
+
+        await fetch(`/device`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fingerprint,
+                ip: device.query,
+                country: device.country,
+                regionName: device.regionName,
+                city: device.city,
+                timezone: device.timezone,
+                as: device.as,
+                isp: device.isp,
+            }),
+        });
         const res = await fetch(`/save`, {
             method: "POST",
             headers: {
